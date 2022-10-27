@@ -1,6 +1,7 @@
 const { Telegraf, Markup } = require("telegraf");
 require("dotenv").config();
 const text = require("./const");
+import { proektVidv, landLord, rishennyaKyiv } from "./api/api.proektVidv";
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start((ctx) =>
@@ -49,8 +50,8 @@ function addActionBot(name, src, text) {
   });
 }
 
-addActionBot("btn_1", "./img/1.jpg", text.text1);
-addActionBot("btn_2", "./img/2.jpg", text.text2);
+addActionBot("btn_1", "./img/1.jpg", proektVidv.note);
+addActionBot("btn_2", "./img/2.jpg", proektVidv.poryadokKyiv);
 addActionBot("btn_3", false, text.text3);
 bot.launch();
 
